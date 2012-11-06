@@ -22,7 +22,6 @@ function FormCtrl($scope) {
     Datastore.remove(idx);
   };
 
-  var timer = null;
   $scope.save = function() {
     if(Policy.validate($scope.policy)) {
       Datastore.save($scope.policies);
