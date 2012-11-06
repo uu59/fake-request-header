@@ -1,0 +1,89 @@
+<!DOCTYPE html> 
+<html ng-app>
+<head> 
+  <title></title>
+  <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=Dosis:600' rel='stylesheet' type='text/css'>
+  <script src="../datastore.js"></script>
+  <script src="../policy.js"></script>
+  <script src="angular-1.1.0.js"></script>
+  <script src="option.js"></script>
+</head> 
+<body>
+  <script type="text/ng-template" id="rule">
+    <h2>{{ rulekey }}</h2>
+      <select ng-model="rule.ruletype" ng-change="save()">
+        <option ng-selected="rule.ruletype == key" title="{{type.desc}}" ng-repeat="(key,type) in ruletypes" value="{{ key }}">{{ type.label }}</option>
+      </select>
+      <span ng-show="isDisplayRuleValue()">
+        <input type="text" ng-model="rule.value" ng-change="save()"/>
+      </span>
+  </script>
+
+  <h1>Policies</h1>
+  <div ng-controller="FormListCtrl">
+    <ul>
+      <li ng-repeat="(idx, policy) in policies">
+        <form name="form" class="policyform floatbox" ng-controller="FormCtrl">
+          <div class="move button-group">
+            <span ng-click="up(idx)" class="arrowup icon button">Up</span>
+            <span ng-click="down(idx)" class="arrowdown icon button">Down</span>
+          </div>
+          <div class="buttons">
+            <span class="button icon remove danger" ng-click="remove(idx)">Remove</span>
+          </div>
+          <div class="pattern">
+            <input type="text" ng-change="save()" ng-pattern="urlRegex" ng-model="policy.pattern" placeholder="ex: http://image.itmedia.co.jp/*" required />
+          </div>
+          <div class="rules" ng-repeat="rulekey in rules" ng-controller="RuleCtrl">
+            <ng-include src="'rule'"></ng-include>
+          </div>
+        </form>
+      </li>
+    </ul>
+    <span class="button icon add" ng-click="policies.push(emptyPolicy())">Add policy</span>
+  </div>
+
+  <h1>How to setup</h1>
+  <div class="floatbox">
+    <ol>
+      <li>Click 'Add policy'</li>
+      <li>Input target URL pattern such as <var>http://*.fc2.com/*</var></li>
+      <li>Select your rule. e.g. Referer as 'empty'</li>
+      <li>Done!</li>
+    </ol>
+    <p>
+      NOTE: URL patterns should be valid as <a href="http://developer.chrome.com/extensions/match_patterns.html">Chrome match patterns</a>.
+    </p>
+  </div>
+
+  <h1>Thanks</h1>
+  <div class="floatbox">
+    <dl>
+      <dt>Extension icon</dt>
+      <dd>
+        <a target="_blank" href="http://www.iconfinder.com/icondetails/66346/128/secret_mask_icon">http://www.iconfinder.com/icondetails/66346/128/secret_mask_icon</a>
+      </dd>
+
+      <dt>Github Buttons</dt>
+      <dd>
+        <a target="_blank" href="http://nicolasgallagher.com/lab/css3-github-buttons/">http://nicolasgallagher.com/lab/css3-github-buttons/</a>
+      </dd>
+
+      <dt>option page</dt>
+      <dd>
+        <a target="_blank" href="http://angularjs.org/">http://angularjs.org/</a>
+      </dd>
+      <dd>
+        <a target="_blank" href="http://subtlepatterns.com/">http://subtlepatterns.com/</a>
+      </dd>
+      <dd>
+        <a target="_blank" href="https://speakerdeck.com/ken_c_lo/zurui-design">https://speakerdeck.com/ken_c_lo/zurui-design</a>
+      </dd>
+      <dd>
+        <a target="_blank" href="http://www.google.com/webfonts/specimen/Dosis">http://www.google.com/webfonts/specimen/Dosis</a>
+      </dd>
+    </dl>
+  </div>
+
+</body></html> 

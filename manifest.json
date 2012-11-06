@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Fake Request Header",
+  "version": "1.0.0",
+  "description": "set your Cookie, Referer, and User-Agent policy for any sites",
+  "icons": 
+  {
+    "128": "icons/icon128x128.png",
+    "48":  "icons/icon48x48.png",
+    "16":  "icons/icon16x16.png",
+    "32":  "icons/icon32x32.png",
+    "64":  "icons/icon64x64.png"
+  },
+  "permissions": [ "webRequest", "webRequestBlocking", "http://*/*", "https://*/*"],
+  "options_page": "options_page/index.html",
+  "background": {
+    "scripts": [
+      "datastore.js",
+      "policy.js",
+      "events.js"
+    ]
+  }
+}

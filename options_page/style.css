@@ -1,0 +1,92 @@
+@import "gh-buttons.css";
+
+body {
+  background-image: url(diagonal_waves.png);
+}
+
+h1 {
+  font-weight: normal;
+  font-family: 'Dosis', sans-serif;
+  font-size: xx-large;
+}
+h2 {
+  font-weight: normal;
+  font-size: large;
+  display: inline;
+}
+
+    ul, ul li {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    ol li {
+      padding: 1ex 0;
+    }
+    .floatbox {
+      background: #f8f8f8;
+      border-radius: 4px;
+      border: 2px solid #d0d0d0;
+      margin: 1em auto;
+      padding: 1em;
+    }
+    form.ng-invalid {
+      background-color: #fee;
+    }
+    form:after {
+      content: " ";
+      height: 0;
+      clear: both;
+      overflow: hidden;
+      display: block;
+    }
+    form > * {
+      float: left;
+    }
+    form .move {
+    }
+    form .pattern {
+      padding:0 2em;
+      width: 50%;
+    }
+    form .buttons {
+      float: right;
+      text-align: right;
+    }
+    form .rules {
+      clear: both;
+      padding-top: 1em;
+      width: 100%;
+    }
+
+    .policyform .pattern input {
+      width: 100%;
+    }
+    .policyform label {
+      display: block;
+      min-height: 3em;
+      line-height: 1;
+    }
+    .policyform label:hover {
+      background: #efe;
+    }
+
+    .policyform .rules input {
+      width: 50%;
+    }
+  
+    p, li {
+      color: #555;
+    }
+    var {
+      font-style: normal;
+      color: #000;
+      font-family: monospace;
+    }
+
+    dl dt {
+      padding: 1em 0 1ex 0;
+    }
+    dl dd {
+      padding: 1ex;
+    }
