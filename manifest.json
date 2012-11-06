@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Fake Request Header",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "set your Cookie, Referer, and User-Agent policy for any sites",
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "icons": 
