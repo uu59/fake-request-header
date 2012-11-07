@@ -27,16 +27,21 @@ function beforeEventCallback(details){
   targetHeaders.forEach(function(name){
     var value = Policy.calculateRuledValue(policy.rules[name]);
     if(value === null) {
+      // "noop"
       return;
     }
 
     sendHeaders = sendHeaders.filter(function(head){
       return head.name != name;
     });
-    sendHeaders.push({
-      name: name,
-      value: value
-    });
+
+    if(value && value.length > 0) {
+      // only push "fixed"
+      sendHeaders.push({
+        name: name,
+        value: value
+      });
+    }
   });
 
   return {
