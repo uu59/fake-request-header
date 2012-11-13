@@ -25,7 +25,7 @@ function beforeEventCallback(details){
   var sendHeaders = details.requestHeaders;
 
   targetHeaders.forEach(function(name){
-    var value = Policy.calculateRuledValue(policy.rules[name]);
+    var value = Policy.calculateRuledValue(policy.rules[name], matchedUrl);
     if(value === null) {
       // "noop"
       return;

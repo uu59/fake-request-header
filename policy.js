@@ -35,11 +35,11 @@ var Policy = (function(){
     },
     fixed: {
       label: "fixed",
-      desc: "always send fixed string"
+      desc: "always send fixed string (%URL% is a special value that will be replaced by matched URL)"
     }
   };
 
-  var calculateRuledValue = function(rule) {
+  var calculateRuledValue = function(rule, url) {
     switch(rule.ruletype) {
       case "noop":
         return null;
@@ -48,7 +48,7 @@ var Policy = (function(){
         return "";
 
       case "fixed":
-        return rule.value;
+        return rule.value.replace("%URL%", url);
     }
   };
 
