@@ -53,7 +53,7 @@ function setupEventMonitor() {
 
 chrome.extension.onMessage.addListener(
   function(message){
-    if(message !== "DataUpdated") {
+    if(message === "DataUpdated") {
       chrome.webRequest.onBeforeSendHeaders.removeListener(beforeEventCallback);
       setupEventMonitor();
     }
