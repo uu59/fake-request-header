@@ -1,3 +1,4 @@
+/*global chrome, Policy */
 var Datastore = (function(){
   "use strict";
 

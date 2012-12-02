@@ -1,3 +1,4 @@
+/*global chrome */
 var Policy = (function(){
   "use strict";
 
